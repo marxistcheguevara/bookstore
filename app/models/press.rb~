@@ -1,0 +1,4 @@
+class Press < ActiveRecord::Base
+	validates :name
+	has_many :products
+end

@@ -1,0 +1,11 @@
+class Author < ActiveRecord::Base
+	validates :name, :surname	
+	has_many :products
+	
+	def name_with_initial
+		"#{surname}, #{name}"
+	end
+
+end
+
+

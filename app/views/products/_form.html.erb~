@@ -1,0 +1,49 @@
+<%= form_for(@product) do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "Adı" %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label "Bölmə" %>
+    <%= f.collection_select :category_id, @category, :id, :name %>
+  </div>
+  <div class="field">
+    <%= f.label "ISBN" %>
+    <%= f.text_field :isbn %>
+  </div>
+  <div class="field">
+    <%= f.label "Müəllif" %>
+    <%= f.collection_select :author_id, @author, :id, :name_with_initial %>
+  </div>
+  <div class="field">
+    <%= f.label "Nəşriyyat" %>
+    <%= f.collection_select :press_id, @press, :id, :name %>
+  </div>
+  <div class="field">
+    <%= f.label "Haqqında" %>
+    <%= f.text_area :description, rows: 6 %>
+  </div>
+  <div class="field">
+    <%= f.label "Şəkil" %>
+    <%= f.text_field :image_url %>
+  </div>
+  <div class="field">
+    <%= f.label "Qiymət" %>
+    <%= f.text_field :price %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Əlavə et" %>
+  </div>
+<% end %>

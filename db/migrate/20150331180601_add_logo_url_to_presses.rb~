@@ -1,0 +1,5 @@
+class AddLogoUrlToPresses < ActiveRecord::Migration
+  def change
+    add_column :presses, :logo_url, :string
+  end
+end

@@ -1,0 +1,82 @@
+<p id="notice"><%= notice %></p>
+<%= render 'shared/topnav' %>
+<p id="notice"><%= notice %></p>
+
+<%= render 'shared/left' %>
+
+<div class="col-md-6 column">
+						
+			<div class="row clearfix">
+				<div class="page-header">
+					<h3><%= @author.name %> <%= @author.surname %></h3>
+					</div>
+				
+				<!-IMAGE START>
+				
+				<div class="col-md-4 column">
+					<img src="<%= @author.profile_image %>">
+				</div>
+				
+				<!-IMAGE END>
+				
+				<div class="col-md-2 column"></div>
+				<!- INFO START >
+				<div class="col-md-6 column">
+					<div class="well">
+					<ul>
+
+						<li>
+							Bu müəllifə aid <strong><%= @author.products.count %></strong> kitab var
+						</li>
+						<hr>
+						<li>
+							Bölmələr: <strong> code a.s.a.p. :) </strong>
+						</li>
+						<hr>
+																		
+					</ul>
+					</div>
+				</div>
+				<!-INFO END>
+			</div>
+			
+			<div class="row clearfix"></div>
+			<hr>
+			<div class="row clearfix"> 
+				<div class="col-md-12 column">
+							<div class="row">
+	<% @products_for_thumbnail.each do |pft|  %>			
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<img class="img-thumbnail" src="<%= pft.image_url %>" >
+						<hr>
+						<div class="caption">
+						<p>
+						<%= pft.author.name_with_initial %>
+						<hr>
+						<%= pft.category[:name] %>
+							</p>
+							<hr>
+							<p>
+								<%= link_to "Bax", pft, :class => "btn btn-success" %> 
+							</p>
+						</div>
+					</div>
+				</div>
+			<% end %>
+			
+			<div> 
+							
+					<!--MEDIA LIST -->							
+			</div>
+					
+			 </div>
+            
+            			
+				</div>
+			</div>
+		</div>
+
+<%= render 'shared/right' %>
+<%= render 'shared/footer' %>
+
